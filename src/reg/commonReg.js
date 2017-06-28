@@ -29,6 +29,7 @@ var regDateFormat = function (str) {
 	return /^\d{4,}(\/|-)(?:0?\d|1[12])(\/|-)(?:[012]?\d|3[01]) (?:[01]?\d|2[0-4]):(?:[0-5]?\d|60):(?:[0-5]?\d|60)$/.test(str);
 }
 
+
 export default {
 	regPhoneNo,
 	regEMail,
