@@ -9,7 +9,7 @@ module.exports = {
     })
   ],
   entry: {
-    'sg': __dirname + '/index.js'
+    'sg': __dirname + '/src/index.js'
   },
   output: {
     /*libraryTarget: 'umd',*/
