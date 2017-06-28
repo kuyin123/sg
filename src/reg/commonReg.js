@@ -15,7 +15,7 @@ var regEMail = function (str) {
 	return /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(str);
 }
 
-// 3. 用户名: 字母、数字、下划线，1-16位
+// 3. 用户名: 字母、数字、下划线开头，1-16位
 var regUserName = function (str) {
 	return /^\w{1,16}$/.test(str);
 }
