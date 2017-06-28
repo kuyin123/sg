@@ -1,8 +1,8 @@
-/**
- * Created by cqc168 on 2017/6/28.
- */
+/*sg-utils-dateFormat 2017-06*/
 
 // 日期 时间 格式化工具
+// 传入要格式化的时间数据, 返回相应格式的时间值.
+
 // 前一天
 var prevHour = function(src) {
   return new Date(src.getTime() - 24 * 60 * 60 * 1000);
@@ -18,18 +18,14 @@ var prevMonth = function(src) {
   const year = src.getFullYear();
   const month = src.getMonth();
   const date = src.getDate();
-
   const newYear = month === 0 ? year - 1 : year;
   const newMonth = month === 0 ? 11 : month - 1;
-
   const newMonthDayCount = new Date(newYear, newMonth + 1, 0).getDate() //getDayCountOfMonth(newYear, newMonth);
   if (newMonthDayCount < date) {
     src.setDate(newMonthDayCount);
   }
-
   src.setMonth(newMonth);
   src.setFullYear(newYear);
-
   return new Date(src.getTime());
 };
 
