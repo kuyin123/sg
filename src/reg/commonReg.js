@@ -1,6 +1,4 @@
-/**
- * Created by cqc168 on 2017/6/28.
- */
+/*sg-utils-reg 2017-06*/
 
 // 常用正则判断
 // 传入要验证的字符串, 返回 Boolean 值.
@@ -20,7 +18,7 @@ var regUserName = function (str) {
 	return /^\w{1,16}$/.test(str);
 }
 
-// 4. 用户密码: 密码必须由数字、字母、特殊字符组成且密码长度为1~16个字符
+// 4. 用户密码: 密码由数字、字母、特殊字符开头、组成且密码长度为1~16个字符
 var regPassword = function (str) {
 	// return /^[A-Za-z0-9_#@$%^&*()~]{1,16}$/.test(str);
 	return /^[\w#@$%^&*()~]{1,16}$/.test(str);
