@@ -1,6 +1,6 @@
 /*
 * sg-utils-dateHandler 2017-06
-* date time handler
+* date handler utils
 * */
 
 /* export 的顶层对象 */
@@ -12,9 +12,10 @@ var dateHandler = {
   dateFormat
 };
 
-/*  Date 的处理方法和格式化
- *  传入要格式化的时间数据, 返回相应格式的时间值.
- * */
+/*
+* Date 的处理方法和格式化
+* 传入要格式化的时间数据, 返回相应格式的时间值.
+* */
 // 1. 前一天
 function prevDay(src) {
   return new Date(src.getTime() - 24 * 60 * 60 * 1000);

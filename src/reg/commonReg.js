@@ -1,6 +1,6 @@
 /*
 * sg-utils-reg 2017-06
-* common regular expression utils
+* common regular utils
 * */
 
 /* 要 export 的顶层对象 */
@@ -19,14 +19,15 @@ const regPhoneNoExp = /^1\d{10}$/;
 const regEMailExp = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
 // 3.用户名: 字母、数字、下划线开头，1-16位
 const regUsernameExp = /^\w{1,16}$/;
-// 4.户密码: 密码由数字、字母、特殊字符开头、组成且密码长度为1~16个字符
+// 4.用户密码: 密码由数字、字母、特殊字符开头、组成且密码长度为1~16个字符
 const regPasswordExp = /^[\w#@$%^&*()~]{1,16}$/; // /^[A-Za-z0-9_#@$%^&*()~]{1,16}$/
 // 5.标准日期时间格式：yy/mm/dd hh:mm:ss 或者 yy-mm-dd hh:mm:ss
 const regDateFormatExp = /^\d{4,}(\/|-)(?:0?\d|1[12])(\/|-)(?:[012]?\d|3[01]) (?:[01]?\d|2[0-4]):(?:[0-5]?\d|60):(?:[0-5]?\d|60)$/;
 
-/*  运用正则表达式判断: regExp.test
- *  传入字符串, 返回 Boolean 值
- * */
+/*
+* 运用正则表达式判断: regExp.test
+* 传入字符串, 返回 Boolean 值
+* */
 // 1. 手机号判断
 function regTestPhoneNo(str) {
   return regPhoneNoExp.test(str);
