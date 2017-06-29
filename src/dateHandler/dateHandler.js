@@ -4,26 +4,26 @@
 
 /* export 的顶层对象 */
 var dateHandler = {
-  prevDay: null,
-  prevWeek: null,
-  prevMonth: null,
-  prevYear: null,
-  dateFormat: null
+  prevDay,
+  prevWeek,
+  prevMonth,
+  prevYear,
+  dateFormat
 };
 
 /*  Date 的处理方法和格式化
  *  传入要格式化的时间数据, 返回相应格式的时间值.
  * */
 // 1. 前一天
-dateHandler.prevDay = function (src) {
+function prevDay(src) {
   return new Date(src.getTime() - 24 * 60 * 60 * 1000);
 };
 // 2. 前一周
-dateHandler.prevWeek = function (src) {
+function prevWeek(src) {
   return new Date(src.getTime() - 7 * 24 * 60 * 60 * 1000);
 };
 // 3. 前一月
-dateHandler.prevMonth = function (src) {
+function prevMonth(src) {
   const year = src.getFullYear();
   const month = src.getMonth();
   const date = src.getDate();
@@ -38,13 +38,13 @@ dateHandler.prevMonth = function (src) {
   return new Date(src.getTime());
 };
 // 4. 前一年
-dateHandler.prevYear = function (src) {
+function prevYear(src) {
   let date = new Date(src);
   date.setFullYear(date.getFullYear() - 1);
   return date;
 };
 // 5. 日期根据传入条件格式化
-dateHandler.dateFormat = function (date, fmt) {
+function dateFormat(date, fmt) {
   let o = {
     "M+": date.getMonth() + 1, //月份
     "d+": date.getDate(), //日
