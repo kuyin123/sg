@@ -4,11 +4,11 @@
  * @returns {}
  */
 function isEmpty(str) {
-	if(str == null || typeof str == "undefined" || str.trim() == "") {
-		return true;
-	} else {
-		return false;
-	}
+    if (str == null || typeof str == "undefined" || str.trim() == "") {
+        return true;
+    } else {
+        return false;
+    }
 };
 
 /*
@@ -18,11 +18,11 @@ function isEmpty(str) {
  * @returns {Boolean}
  */
 function isEquals(str1, str2) {
-	if(str1 == str2) {
-		return true;
-	} else {
-		return false;
-	}
+    if (str1 == str2) {
+        return true;
+    } else {
+        return false;
+    }
 };
 /*
  * 忽略大小写判断字符串是否相同
@@ -30,12 +30,12 @@ function isEquals(str1, str2) {
  * @param str2
  * @returns {Boolean}
  */
-isEqualsIgnorecase: function(str1, str2) {
-	if(str1.toUpperCase() == str2.toUpperCase()) {
-		return true;
-	} else {
-		return false;
-	}
+function isEqualsIgnorecase(str1, str2) {
+    if (str1.toUpperCase() == str2.toUpperCase()) {
+        return true;
+    } else {
+        return false;
+    }
 };
 /**
  * 判断是否是数字
@@ -43,11 +43,11 @@ isEqualsIgnorecase: function(str1, str2) {
  * @returns {Boolean}
  */
 function isNum(value) {
-	if(value != null && value.length > 0 && isNaN(value) == false) {
-		return true;
-	} else {
-		return false;
-	}
+    if (value != null && value.length > 0 && isNaN(value) == false) {
+        return true;
+    } else {
+        return false;
+    }
 };
 /**
  * 判断是否是中文
@@ -55,17 +55,17 @@ function isNum(value) {
  * @returns {Boolean}
  */
 function isChine(str) {
-	var reg = /^([u4E00-u9FA5]|[uFE30-uFFA0])*$/;
-	if(reg.test(str)) {
-		return false;
-	}
-	return true;
+    var reg = /^([u4E00-u9FA5]|[uFE30-uFFA0])*$/;
+    if (reg.test(str)) {
+        return false;
+    }
+    return true;
 };
 
 export default {
-	isEmpty,
-	isEquals,
-	isEqualsIgnorecase,
-	isNum,
-	isChine
+    isEmpty,
+    isEquals,
+    isEqualsIgnorecase,
+    isNum,
+    isChine
 }
