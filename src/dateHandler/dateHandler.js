@@ -1,26 +1,35 @@
-/*sg-utils-dateFormat 2017-06*/
+/* sg-utils-dateHandler 2017-06
+ * date time handler
+ * */
 
-// 日期 时间 格式化工具
-// 传入要格式化的时间数据, 返回相应格式的时间值.
+/* export 的顶层对象 */
+var dateHandler = {
+  prevDay: null,
+  prevWeek: null,
+  prevMonth: null,
+  prevYear: null,
+  dateFormat: null
+};
 
-// 前一天
-var prevHour = function(src) {
+/*  Date 的处理方法和格式化
+ *  传入要格式化的时间数据, 返回相应格式的时间值.
+ * */
+// 1. 前一天
+dateHandler.prevDay = function (src) {
   return new Date(src.getTime() - 24 * 60 * 60 * 1000);
 };
-
-// 前一周
-var prevWeek = function(src) {
+// 2. 前一周
+dateHandler.prevWeek = function (src) {
   return new Date(src.getTime() - 7 * 24 * 60 * 60 * 1000);
 };
-
-// 前一月
-var prevMonth = function(src) {
+// 3. 前一月
+dateHandler.prevMonth = function (src) {
   const year = src.getFullYear();
   const month = src.getMonth();
   const date = src.getDate();
   const newYear = month === 0 ? year - 1 : year;
   const newMonth = month === 0 ? 11 : month - 1;
-  const newMonthDayCount = new Date(newYear, newMonth + 1, 0).getDate() //getDayCountOfMonth(newYear, newMonth);
+  const newMonthDayCount = new Date(newYear, newMonth + 1, 0).getDate(); //getDayCountOfMonth(newYear, newMonth);
   if (newMonthDayCount < date) {
     src.setDate(newMonthDayCount);
   }
@@ -28,17 +37,15 @@ var prevMonth = function(src) {
   src.setFullYear(newYear);
   return new Date(src.getTime());
 };
-
-// 前一年
-var prevYear = function(src) {
-  var date = new Date(src);
+// 4. 前一年
+dateHandler.prevYear = function (src) {
+  let date = new Date(src);
   date.setFullYear(date.getFullYear() - 1);
   return date;
 };
-
-// 时间 根据传入条件格式化
-var format = function(date, fmt) { //author: meizz
-  var o = {
+// 5. 日期根据传入条件格式化
+dateHandler.dateFormat = function (date, fmt) {
+  let o = {
     "M+": date.getMonth() + 1, //月份
     "d+": date.getDate(), //日
     "h+": date.getHours(), //小时
@@ -50,7 +57,7 @@ var format = function(date, fmt) { //author: meizz
   if (/(y+)/.test(fmt)) {
     fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
   }
-  for (var k in o) {
+  for (let k in o) {
     if (new RegExp("(" + k + ")").test(fmt)) {
       fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     }
@@ -58,10 +65,5 @@ var format = function(date, fmt) { //author: meizz
   return fmt;
 };
 
-export default {
-  prevHour,
-  prevWeek,
-  prevMonth,
-  prevYear,
-  format
-}
+/* 暴露顶层对象 */
+export default dateHandler
