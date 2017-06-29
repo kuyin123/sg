@@ -63,6 +63,7 @@ function arrayConcat() {
  * @returns {array}
  * */
 function unique(arr) {
+    if (arr.length)return;
     var hash = {}, ret = [];
     for (var i = 0, l = arr.length; i < l; i++) {
         if (!hash[arr[i]]) {
@@ -77,5 +78,5 @@ export default {
     arrayFilter,
     arrayEvery,
     arrayConcat,
-    toHeavyArray
+    unique
 }
