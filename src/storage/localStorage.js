@@ -1,6 +1,7 @@
 
 /*
  * localStorage对象缓存数据操作
+ * by gouxiaojun
  * */
 
 let storage = (function () {
