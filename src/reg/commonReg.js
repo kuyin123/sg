@@ -4,11 +4,11 @@
 
 /* 要 export 的顶层对象 */
 var reg = {
-  regTestPhoneNo,
-  regTestEMail,
-  regTestUsername,
-  regTestPassword,
-  regTestDateFormat
+  regTestPhoneNo: null,
+  regTestEMail: null,
+  regTestUsername: null,
+  regTestPassword: null,
+  regTestDateFormat: null
 };
 
 /* 正则表达式: regular expression */

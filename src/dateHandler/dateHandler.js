@@ -4,14 +4,14 @@
 
 /* export 的顶层对象 */
 var dateHandler = {
-  prevDay,
-  prevWeek,
-  prevMonth,
-  prevYear,
-  dateFormat
+  prevDay: null,
+  prevWeek: null,
+  prevMonth: null,
+  prevYear: null,
+  dateFormat: null
 };
 
-/*  时间的方法
+/*  Date 的处理方法和格式化
  *  传入要格式化的时间数据, 返回相应格式的时间值.
  * */
 // 1. 前一天
@@ -39,13 +39,13 @@ dateHandler.prevMonth = function (src) {
 };
 // 4. 前一年
 dateHandler.prevYear = function (src) {
-  var date = new Date(src);
+  let date = new Date(src);
   date.setFullYear(date.getFullYear() - 1);
   return date;
 };
 // 5. 日期根据传入条件格式化
-dateHandler.dateFormat = function (date, fmt) { //author: meizz
-  var o = {
+dateHandler.dateFormat = function (date, fmt) {
+  let o = {
     "M+": date.getMonth() + 1, //月份
     "d+": date.getDate(), //日
     "h+": date.getHours(), //小时
@@ -57,7 +57,7 @@ dateHandler.dateFormat = function (date, fmt) { //author: meizz
   if (/(y+)/.test(fmt)) {
     fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
   }
-  for (var k in o) {
+  for (let k in o) {
     if (new RegExp("(" + k + ")").test(fmt)) {
       fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     }
