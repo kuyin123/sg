@@ -59,7 +59,7 @@ function arrayConcat() {
 
 /*
  * 数组去重方法
- * @param {Array} [array] 需要过滤的数组
+ * @param {Array} [array] 需要去重的数组
  * @returns {array}
  * */
 function unique(arr) {
