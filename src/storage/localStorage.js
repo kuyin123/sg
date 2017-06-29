@@ -1,13 +1,16 @@
+
 /*
- * localStorage数据操作
+ * localStorage对象缓存数据操作
  * */
+
 let storage = (function () {
+
     if (window.localStorage) {
 
         let ls = window.localStorage;
 
         //更新缓存数据
-        function setLocalStorage(name, val) {
+        function write(name, val) {
             let str = typeof name === 'string' || typeof name === "number";
             let obj = typeof val === 'object';
             if (!str)return;
@@ -16,7 +19,7 @@ let storage = (function () {
         };
 
         //获取缓存数据
-        function getLocalStorage(name) {
+        function read(name) {
             let item = ls.getItem(name);
             if (name && item) {
                 return (item.indexOf('{') != -1 || item.indexOf('[') != -1) ? JSON.parse(item) : item;
@@ -26,24 +29,26 @@ let storage = (function () {
         };
 
         //删除缓存数据
-        function removeLocalStorage(name) {
+        function remove(name) {
             return ls.removeItem(name);
         };
 
         //清除所有缓存数据
-        function clearAllLocalStorage() {
+        function clearAll() {
             ls.clear();
         };
 
         return {
-            setLocalStorage,
-            getLocalStorage,
-            clearAllLocalStorage
+            write,
+            read,
+            remove,
+            clearAll
         }
 
     } else {
         throw new Error('浏览器不支持LocalStorage对象。。。。。。。');
     }
+
 })();
 
 export default storage;
