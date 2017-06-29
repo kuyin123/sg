@@ -1,6 +1,7 @@
-/* sg-utils-dateHandler 2017-06
- * date time handler
- * */
+/*
+* sg-utils-dateHandler 2017-06
+* date time handler
+* */
 
 /* export 的顶层对象 */
 var dateHandler = {

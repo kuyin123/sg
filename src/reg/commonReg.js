@@ -1,6 +1,7 @@
-/*  sg-utils-reg 2017-06
- *  common regular expression utils
- * */
+/*
+* sg-utils-reg 2017-06
+* common regular expression utils
+* */
 
 /* 要 export 的顶层对象 */
 var reg = {
