@@ -4,11 +4,11 @@
 
 /* 要 export 的顶层对象 */
 var reg = {
-  regTestPhoneNo: null,
-  regTestEMail: null,
-  regTestUsername: null,
-  regTestPassword: null,
-  regTestDateFormat: null
+  regTestPhoneNo,
+  regTestEMail,
+  regTestUsername,
+  regTestPassword,
+  regTestDateFormat
 };
 
 /* 正则表达式: regular expression */
@@ -27,23 +27,23 @@ const regDateFormatExp = /^\d{4,}(\/|-)(?:0?\d|1[12])(\/|-)(?:[012]?\d|3[01]) (?
  *  传入字符串, 返回 Boolean 值
  * */
 // 1. 手机号判断
-reg.regTestPhoneNo = function (str) {
+function regTestPhoneNo(str) {
   return regPhoneNoExp.test(str);
 };
 // 2. 邮箱地址判断
-reg.regTestEMail = function (str) {
+function regTestEMail(str) {
   return regEMailExp.test(str);
 };
 // 3. 用户名判断
-reg.regTestUsername = function (str) {
+function regTestUsername(str) {
   return regUsernameExp.test(str);
 };
 // 4. 用户密码判断
-reg.regTestPassword = function (str) {
+function regTestPassword(str) {
   return regPasswordExp.test(str);
 };
 // 5. 标准日期时间格式判断
-reg.regTestDateFormat = function (str) {
+function regTestDateFormat(str) {
   return regDateFormatExp.test(str);
 };
 
