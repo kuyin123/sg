@@ -12,8 +12,8 @@ module.exports = {
     'sg': __dirname + '/src/index.js'
   },
   output: {
-    /*libraryTarget: 'umd',*/
-    /*library: 'sg',*/
+    libraryTarget: 'umd',
+    library: 'sg',
     path: __dirname + '/dist',
     filename: PROD ? '[name].min.js' : '[name].js'
   },
