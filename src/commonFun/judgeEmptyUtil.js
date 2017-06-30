@@ -14,7 +14,7 @@ var arrUtil = require('./arrayUtil');
 function isEmpty(value) {
     //1.判读出null,'',0,false,undefined的情况
     if (!value) {
-        return false;
+        return true;
     }
     //2.在判断类型
     var type = (judgType.isString(value) && 1) || (judgType.isArray(value) && 2) || (judgType.isObject(value) && 3);
